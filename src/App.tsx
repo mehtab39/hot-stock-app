@@ -1,7 +1,9 @@
+import Instruments from './components/instruments';
+
 export default function App() {
   return (
     <div className="App">
-      <h1>Let's start</h1>
+      <Instruments />
     </div>
   );
 }
