@@ -8,6 +8,10 @@ const Quotes = () => {
     const data = await fetchQuote('BRITANNIA');
     setQuote(data);
   };
+
+  useEffect(() => {
+    getQuote();
+  }, []);
   return <></>;
 };
 
