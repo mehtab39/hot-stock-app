@@ -6,6 +6,8 @@ const Instruments = () => {
   const [instruments, setInstruments] = useState<
     null | IInstrument[]
   >(null);
+  console.log('instruments:', instruments)
+
   const getInstruments = async () => {
     const response = await fetchInstruments();
     setInstruments(response);
