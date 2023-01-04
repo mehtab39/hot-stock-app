@@ -1,9 +1,3 @@
-export enum InstrumentEnum {
-  Symbol,
-  Name,
-  Sector,
-  Validtill,
-}
 export interface IInstrument {
   Symbol: string;
   Name: string;
@@ -11,15 +5,8 @@ export interface IInstrument {
   Validtill: string;
 }
 
-export type IInstrumentTupple = [
-  IInstrument['Symbol'],
-  IInstrument['Name'],
-  IInstrument['Sector'],
-  IInstrument['Validtill']
-];
-
 export type ICSVTOJSON = (CSV: string) => {
-  data: IInstrumentTupple[];
+  data: IInstrument[];
 };
 export interface IQutoes {
   Symbol: {

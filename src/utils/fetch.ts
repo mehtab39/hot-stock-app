@@ -1,4 +1,4 @@
-import { CSVToInstrumentParser } from './dataParser';
+import { CSVToJSON } from './dataParser';
 import { IInstrument, IQutoes } from './types';
 
 export const BASE_ENDPOINT = 'https://prototype.sbulltech.com/api/v2';
@@ -19,8 +19,8 @@ export const fetchInstruments = async (): Promise<
   const response = await getRequest('/instruments');
   if (response) {
     const csv = await response.text();
-    const instruments = await CSVToInstrumentParser(csv);
-    return instruments;
+    const instruments = await CSVToJSON(csv);
+    return instruments.data;
   }
   return null;
 };
