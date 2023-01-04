@@ -4,7 +4,7 @@ import { IQutoes } from '../utils/types';
 const sortQuotes = (
   data: IQutoes[],
   asc: boolean = true,
-  property: string
+  property: keyof IQutoes
 ) => {
   const sortValue = (a: Date, b: Date) => {
     if (a > b) return 1;
@@ -47,14 +47,18 @@ const useQuotes = (instrument: string | undefined) => {
 
   const sortedQuotes = useMemo(() => {
     if (null !== quotes) {
-      return sortQuotes(quotes, isAscSorted, 'price');
+      return sortQuotes(quotes, isAscSorted, 'time');
     }
     return null;
   }, [isAscSorted, quotes]);
 
+  const toggleSort = () => {
+    setAscSorted(!isAscSorted);
+  };
+
   return {
     quotes: sortedQuotes,
-    setAscSorted,
+    toggleSort,
     isAscSorted,
   };
 };

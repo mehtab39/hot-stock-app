@@ -5,20 +5,23 @@ import List from './List';
 
 const Quotes = () => {
   let { instrument } = useParams();
-  const { quotes } = useQuotes(instrument);
+  const { quotes, toggleSort, isAscSorted } = useQuotes(instrument);
 
   if (undefined === instrument) {
     return null;
   }
-  return null === quotes ? (
-    <h1>Loading quotes for {instrument} </h1>
-  ) : (
+
+  return (
     <div>
       <Header
         title={`Quotes for ${instrument}`}
         isBackButtonVisible
       />
-      <List quotes={quotes} instrument={instrument} />
+      {null === quotes ? (
+        <h1>Loading</h1>
+      ) : (
+        <List quotes={quotes} instrument={instrument} toggleSort={toggleSort} isAscSorted={isAscSorted} />
+      )}
     </div>
   );
 };

@@ -1,19 +1,43 @@
+import {
+  FaArrowAltCircleDown,
+  FaArrowAltCircleUp,
+} from 'react-icons/fa';
 import styled from 'styled-components';
 import { IQutoes } from '../../utils/types';
 
+interface IList {
+  quotes: IQutoes[];
+  instrument: string;
+  isAscSorted: boolean;
+  toggleSort(): void;
+}
 const List = ({
   quotes,
   instrument,
-}: {
-  quotes: IQutoes[];
-  instrument: string;
-}) => {
+  isAscSorted,
+  toggleSort,
+}: IList) => {
   return (
     <MainTable>
       <thead>
         <TR>
-          <TH>Price</TH>
-          <TH>Time</TH>
+          <TH>Price (&#x20b9;)</TH>
+          <TimestampHeader>
+            Time (YYYY-MM-DD hh-mm-ss)
+            <SortButton>
+              {isAscSorted ? (
+                <FaArrowAltCircleUp
+                  fill={'black'}
+                  onClick={toggleSort}
+                />
+              ) : (
+                <FaArrowAltCircleDown
+                  fill={'black'}
+                  onClick={toggleSort}
+                />
+              )}
+            </SortButton>
+          </TimestampHeader>
         </TR>
       </thead>
       <tbody>
@@ -62,4 +86,13 @@ const Symbol = styled(TD)`
   &:hover {
     text-decoration: underline;
   }
+`;
+
+const TimestampHeader = styled(TH)`
+  display: flex;
+`;
+
+const SortButton = styled.div`
+  margin-left: 10px;
+  cursor: pointer;
 `;
