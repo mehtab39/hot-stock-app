@@ -11,5 +11,5 @@ export type ICSVTOJSON = (CSV: string) => {
 export interface IQutoes {
     price: string;
     time: string;
-    Validtill: string;
+    valid_till: string;
 }
