@@ -11,7 +11,6 @@ const List = ({
 
   return (
     <div>
-      <h3>Quotes for {instrument} </h3>
       <ul>
         {quotes.map((quote, index) => (
           <li key={`instrument-${index}`}>
