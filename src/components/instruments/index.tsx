@@ -8,11 +8,11 @@ const Instruments = () => {
     null | IInstrument[]
   >(null);
 
-  const getInstruments = async () => {
-    const response = await fetchInstruments();
-    setInstruments(response);
-  };
   useEffect(() => {
+    const getInstruments = async () => {
+      const response = await fetchInstruments();
+      setInstruments(response);
+    };
     getInstruments();
   }, []);
 

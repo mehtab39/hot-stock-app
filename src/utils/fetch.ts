@@ -27,11 +27,11 @@ export const fetchInstruments = async (): Promise<
 
 export const fetchQuote = async (
   instrument: string
-): Promise<IQutoes | null> => {
+): Promise<IQutoes[] | null> => {
   const response = await getRequest('/quotes/' + instrument);
   if (response) {
     const quote = await response.json();
-    if (quote.success) return quote.payload;
+    if (quote.success) return quote.payload[instrument];
   }
   return null;
 };

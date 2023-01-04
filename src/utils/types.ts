@@ -9,9 +9,7 @@ export type ICSVTOJSON = (CSV: string) => {
   data: IInstrument[];
 };
 export interface IQutoes {
-  Symbol: {
     price: string;
     time: string;
     Validtill: string;
-  };
 }
