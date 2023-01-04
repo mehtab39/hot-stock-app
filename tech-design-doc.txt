@@ -1,0 +1,19 @@
+FE Task:
+Task 1: Create a list of instruments retrieved from an API and render the list as a UI.
+Task 2: Create a Quote page to display the quote data for a selected instrument when the instrument's stock symbol is clicked.
+Task 3: Implement a search feature on the instrument list UI.
+Task 4: Implement a sorting feature to order the quotes by timestamp for a selected instrument.
+
+Tech design:
+1: Create a React application and leverage React Router to support multiple pages.
+2: Implement a page for displaying the list of instruments retrieved from a REST API.
+3: Create a Quote page to display the quote data for a selected instrument when the instrument's stock symbol is clicked.
+4: On a click event, update the FE URL to /quotes/$symbol and use the $symbol from params to send an additional fetch request for getting quotes.
+
+Improvements on UI/UX:
+1: Add animations, colors, and transitions to components for a more user-friendly experience.
+2: Implement loading states or leverage React's Suspense fallback for when data is being fetched.
+3: Create graphs to track quotes over time.
+4: Leverage LRU caching or use a virtualised list to display the instruments for improved scrollability and overall experience.
+5: Cache the quotes at market close (3:30 PM) to minimize API requests.
+5. Can add a MWeb version for it.
