@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useQuotes from '../../hooks/useQuotes';
 import Header from '../Header';
-import List from './List';
+import List from './QuoteList';
 
 const Quotes = () => {
   let { instrument } = useParams();
